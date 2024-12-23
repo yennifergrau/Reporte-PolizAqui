@@ -1,0 +1,90 @@
+<ion-content [fullscreen]="true">
+  <div class="body">
+    <div class="container">
+      <div class="image">
+        <img src="../../../assets/img/logo_polizaqui.jpeg" alt="">
+      </div>
+      <h1>Aliados</h1>
+      <div class="filters">
+        <div class="search-bar">
+          <input 
+              type="text" 
+              [(ngModel)]="searchTerm" 
+              placeholder="Buscar..."/>
+            <button>Buscar</button>
+        </div>
+        <div class="date-filter">
+          <input 
+            type="date" 
+            [(ngModel)]="startDate"/>
+          <input 
+            type="date" 
+            [(ngModel)]="endDate"/>
+          <button>Filtrar</button>
+        </div>
+        <div>
+          <button class="icon-button"  title="Exportar a PDF">
+            <img src="https://img.icons8.com/material-outlined/24/000000/export-pdf.png" alt="Exportar a PDF">
+          </button>
+        </div>
+      </div>
+
+      <ion-grid class="tabla">
+        <ion-row class="encabezado">
+          <ion-col class="text-center2">RIF</ion-col>
+          <ion-col class="text-center2">Nombre</ion-col>
+          <ion-col class="text-center2">Teléfono</ion-col>
+          <ion-col class="text-center2">Dirección</ion-col>
+          <ion-col class="text-center2">Email</ion-col>
+          <ion-col class="text-center2">Fecha Registro</ion-col>
+          <ion-col class="text-center2">Acciones</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of items">
+          <ion-col class="text-center nombre-reporte">{{item.cedula_rif}}</ion-col>
+          <ion-col class="text-center nombre-reporte">{{item.nombre}}</ion-col>
+          <ion-col class="text-center nombre-reporte">{{item.telefono}}</ion-col>
+          <ion-col class="text-center nombre-reporte" title="{{ item.direccion | lowercase }}">{{item.direccion}}</ion-col>
+          <ion-col class="text-center nombre-reporte" title="{{ item.email | lowercase }}">{{item.email}}</ion-col>
+          <ion-col class="text-center nombre-reporte">{{getCurrentDate()}}</ion-col>
+          <ion-col class="text-center nombre-reporte">
+            <button class="button-round" color="danger" (click)="presentDeleteConfirm(item.cedula_rif)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+            <button class="button-round2" color="tertiary" (click)="downloadQRCodeAsPDF(item.codigo_qr,item.nombre,item.cedula_rif)">
+              <ion-icon name="qr-code"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="pagination">
+        <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+        <span>Página {{currentPage}}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <div #qrContainer class="body4" style="display: none;">
+    <div class="container4">
+        <div class="logo4">
+            <img src="../../../assets/img/logo_polizaqui.jpeg" alt="PolizaAqui Logo">
+        </div>
+     
+        <div class="header4">
+            <strong>ADQUIERE AQUÍ TU PRODUCTO</strong>
+        </div>
+        <div class="informacion-rcv">
+          <strong>RCV,FUNERARIO Y ACCIDENTES PERSONALES + GASTOS MEDICOS</strong>
+        </div>
+        <div class="qr-code1">
+          <img [src]="qrCodeUrl" alt="Generated QR Code" width="300">
+          <div class="qr-info">
+              <p><strong>{{nombreAliado}}</strong><br><strong>{{rifAliado}}</strong></p>
+          </div>
+      </div>
+        <div class="details4">
+            <strong>    Escanea el código QR y compra tu seguro en PolizAqui de manera rápida y sencilla.</strong>
+        </div>
+    </div>
+</div>
+</ion-content>

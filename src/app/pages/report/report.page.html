@@ -1,0 +1,76 @@
+<ion-content id="main">
+    <div class="body">
+      <div class="container">
+        <div class="image">
+          <img src="../../../assets/img/logo_polizaqui.jpeg" alt="PolizaAqui Logo">
+        </div>
+        <h1>Transacciones</h1>
+  
+        <div class="filters">
+          <div class="search-bar">
+            <input 
+              type="text" 
+              [(ngModel)]="searchTerm" 
+              placeholder="Buscar..."
+            />
+            <button (click)="filterTransactions()">Buscar</button>
+          </div>
+          <div class="date-filter">
+            <input 
+              type="date" 
+              [(ngModel)]="startDate"
+            />
+            <input 
+              type="date" 
+              [(ngModel)]="endDate"
+            />
+            <button (click)="filterByDate()">Filtrar</button>
+          </div>
+          <div>
+            <button class="icon-button"  title="Exportar a PDF" (click)="exportToPDF()">
+              <img src="https://img.icons8.com/material-outlined/24/000000/export-pdf.png" alt="Exportar a PDF">
+            </button>
+          </div>
+        </div>
+  
+        <ion-grid class="tabla">
+          <ion-row class="encabezado">
+            <ion-col class="text-center2">Póliza</ion-col>
+            <ion-col class="text-center2">Nombre</ion-col>
+            <ion-col class="text-center2">Fecha registro</ion-col>
+            <ion-col class="text-center2">Aseguradora</ion-col>
+            <ion-col class="text-center2">Aliado</ion-col>
+            <ion-col class="text-center2">Prima</ion-col>
+            <ion-col class="text-center2">Método</ion-col>
+            <ion-col class="text-center2">Plan</ion-col>
+            <ion-col class="text-center2">Referencia</ion-col>
+            <ion-col class="text-center2">Operación</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let reporte of items">
+            <ion-col  class="text-center nombre-reporte" title="{{ reporte.id_poliza | lowercase }}">{{reporte.id_poliza}}</ion-col>
+            <ion-col class="text-center nombre-reporte" title="{{ reporte.nombre | lowercase }}">
+              {{ reporte.nombre | lowercase }}
+            </ion-col>
+            <ion-col class="text-center">{{reporte.fecha_emision | date:'dd/MM/yyyy'}}</ion-col>
+            <ion-col  class="text-center nombre-reporte" title="{{ reporte.aseguradora | lowercase }}">{{reporte.aseguradora}}</ion-col>
+            <ion-col class="text-center nombre-reporte" title="{{ reporte.empresa | lowercase }}">{{reporte.empresa || 'PolizAqui'}}</ion-col>
+            <ion-col class="text-center">{{reporte.monto_pago}} $</ion-col>
+            <ion-col class="text-center">{{ getMetodoPagoTexto(reporte.metodo_pago) }}</ion-col>
+            <ion-col class="text-center nombre-reporte" title="{{ reporte.plan | lowercase }}">{{reporte.plan}}</ion-col>
+            <ion-col class="text-center">{{reporte.referencia}}</ion-col>
+            <ion-col class="text-center">{{reporte.estado_poliza}}</ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="pagination">
+          <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+          <span>Página {{currentPage}}</span>
+          <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+        </div>
+      </div>
+      <div class="footer text-center">
+        &copy; 2024 PolizAqui. Todos los derechos reservados.
+      </div>
+    </div>
+  </ion-content>
+  
+  

@@ -1,0 +1,17 @@
+<div class="tabs">
+  <div class="tab"></div>
+  <div class="tab" routerLink="report" [class.active]="isActive('report')">
+    <ion-icon name="cash"></ion-icon>
+    <span class="tab-label">Ventas</span>
+  </div>
+  
+  <div class="tab" routerLink="report-aliado" [class.active]="isActive('report-aliado')">
+    <ion-icon name="people"></ion-icon>
+    <span class="tab-label">Aliados</span>
+  </div>
+  <div class="tab" >
+    <ion-icon name="power" (click)="exitNavigate()"></ion-icon>
+    <span class="tab-label">Salir</span>
+  </div>
+  <div class="tab"></div>
+</div>

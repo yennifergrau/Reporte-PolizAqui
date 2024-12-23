@@ -1,0 +1,198 @@
+ion-content {
+    --background: #f0f0f0;
+}
+
+h1 {
+    font-family: 'Chau Philomene One', sans-serif;
+    color: #EB018A;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+ .image{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+ }
+
+ img {
+    max-width:250px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color:#000;
+}
+
+.text-center2 {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.tabla {
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.encabezado {
+    font-weight: bold;
+    background-color: #EB018A;
+    color: white;
+    padding: 10px 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.action-stack .input-text {
+    background-color: #ccc;
+}
+
+.search-item{
+    width: 50%;
+}
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input, .date-filter input {
+    padding: 10px;
+    border: 1px solid #040303;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #000;
+}
+.nombre-reporte {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.icon-button2 {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+    width: 100px;
+    margin-right: 20px;
+}
+
+
+.search-bar input::placeholder,
+.date-filter input::placeholder {
+    color: black;
+}
+
+.search-bar input {
+    width: 200px;
+    background: #f0f0f0;
+    margin-right: 20px;
+}   
+
+.date-filter input {
+    width: 150px;
+    margin-right: 10px;
+    background: transparent;
+}
+
+
+.search-bar button, .date-filter button {
+    padding: 8px 12px 10px;
+    background-color: #EB018A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+.search-bar button:hover, .date-filter button:hover {
+    background-color: #c70067;
+}
+
+.icon-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+}
+
+  .list{
+  background:#fff;
+  font-family: 'Poppins';
+} 
+
+ion-button{
+    --color:#fffdfe;
+    --background:#EB018A;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 6px 10px;
+    margin: 0 3px;
+    width: 100px;
+    height: 30px;
+    background-color: #EB018A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #c70067;
+}
+
+.pagination span {
+    margin: 0 5px;
+    padding: 6px 10px;
+    background-color: #f7f8fc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #313131;
+}
+
+
+.footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    color: #a8a7a7;
+}
+
